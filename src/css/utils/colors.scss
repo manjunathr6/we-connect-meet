@@ -1,0 +1,51 @@
+// Colors and bg-colors
+@mixin color($value) {
+    color: $value;
+}
+@mixin bg-color($value) {
+    background-color: $value;
+}
+
+$colors: (
+    transparent: transparent,
+    inherit: inherit,
+    white: (
+        Base: $white,
+    ),
+    black: (
+        Base: $black,
+        Dark: $dark,
+    ),
+    blue: (
+        Base: $blue-dark,
+        Lighter: $blue-lighter,
+    ),
+    grey: (
+        Base: $grey,
+        Light: $grey-light,
+        Lighter: $grey-lighter,
+        Dark: $grey-dark,
+    ),
+    green: (
+        Base: $green,
+
+    )
+
+);
+
+@mixin colorMixin($prefix: '') {
+
+    .#{$prefix}color {
+        @include recursiveMap($map: $colors, $attribute: 'color');
+    }
+    
+}
+@mixin backgroundColor($prefix: 'bg-') {
+    .#{$prefix}color {
+        @include recursiveMap($map: $colors, $attribute: 'background', $prefix: '-', $base: 'color');
+    }
+}
+
+@include colorMixin('');
+@include backgroundColor('bg-');
+// @include colorMixin('sm-');

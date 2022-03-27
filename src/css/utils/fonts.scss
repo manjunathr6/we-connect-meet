@@ -1,0 +1,115 @@
+@mixin fontSize($val) {
+    font-size: pixelToRem($val);
+}
+
+.f-14 {
+    font-size: pixelToRem(14);
+}
+.f-16 {
+    font-size: pixelToRem(16);
+}
+.f-18 {
+    font-size: pixelToRem(18);
+}
+.f-20 {
+    font-size: pixelToRem(20);
+}
+.f-22 {
+    font-size: pixelToRem(22);
+}
+.f-24 {
+    font-size: pixelToRem(24);
+}
+.f-32 {
+    font-size: pixelToRem(32);
+}
+.f-36 {
+    font-size: pixelToRem(36);
+}
+.f-42 {
+    font-size: pixelToRem(42);
+}
+@include screen-width($mobile) {
+    .s-f-14 {
+        font-size: pixelToRem(14);
+    }
+    .s-f-16 {
+        font-size: pixelToRem(16);
+    }
+    .s-f-18 {
+        font-size: pixelToRem(18);
+    }
+    .s-f-20 {
+        font-size: pixelToRem(20);
+    }
+    .s-f-22 {
+        font-size: pixelToRem(22);
+    }
+    .s-f-24 {
+        font-size: pixelToRem(24);
+    }
+}
+
+@include screenTablet {
+    .md-f-14 {
+        font-size: pixelToRem(14);
+    }
+    .md-f-16 {
+        font-size: pixelToRem(16);
+    }
+    .md-f-18 {
+        font-size: pixelToRem(18);
+    }
+    .md-f-20 {
+        font-size: pixelToRem(20);
+    }
+    .md-f-22 {
+        font-size: pixelToRem(22);
+    }
+    .md-f-24 {
+        font-size: pixelToRem(24);
+    }
+    .md-f-32 {
+        font-size: pixelToRem(32);
+    }
+    .md-f-36 {
+        font-size: pixelToRem(36);
+    }
+    .md-f-42 {
+        font-size: pixelToRem(42);
+    }
+}
+
+// font weights
+.fw-lighter {
+    font-weight: $fw-lighter;
+}
+.fw-light {
+    font-weight: $fw-light;
+}
+.fw-semiRegular {
+    font-weight: $fw-semiRegular;
+}
+.fw-regular {
+    font-weight: $fw-regular;
+}
+.fw-semiBold {
+    font-weight: $fw-semiBold;
+}
+.fw-bold {
+    font-weight: $fw-bold;
+}
+
+// Text alignment descoration
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+.text-underline {
+    text-decoration: underline;
+}
+.text-noUnderline {
+    text-decoration: none;
+}

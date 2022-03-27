@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-size: 1rem;
+    min-height: 100vh;
+    font-family: $poppins;
+    box-sizing: border-box;
+    font-weight: $fw-semiRegular;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+img {
+    width: 100%;
+}
+h1,h2,h3,h4,h5,h6,
+.title,
+.card-label,
+.sub-title,
+.section-title {
+    font-family: $poppins;
+    text-transform: capitalize;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+// Modals and Overlays
+.dark-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba($black, 0.6);
+}
+
+// Body fluid content height 
+.content-fluid-height {
+    min-height: calc(100vh - 194px);
+}
+
+// form elements
+button,
+select {
+    @include borderNone;
+}

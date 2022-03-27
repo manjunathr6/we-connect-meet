@@ -1,0 +1,174 @@
+@mixin d-flex {display: flex;}
+@mixin d-block {display: block;}
+@mixin d-none {display: none;}
+@mixin d-inlineBlock {display: inline-block;}
+@mixin d-inline {display: inline;}
+@mixin d-grid {display: grid;}
+@mixin d-none {display: none;}
+@mixin visible-none {visibility: hidden;}
+@mixin visible-show {visibility: visible;}
+
+// Positions
+@mixin position-relative {position: relative;}
+@mixin position-absolute {position: absolute;}
+@mixin position-fixed {position: fixed;}
+@mixin position-static {position: static;}
+@mixin position-sticky {position: sticky;}
+
+// All flex properties
+@mixin displayFlex {
+  display: flex;
+  -ms-display: flex;
+  -moz-display: flex;
+  -webkit-display: flex;
+}
+@mixin displayInlineFlex {
+  display: inline-flex;
+  -ms-display: inline-flex;
+  -moz-display: inline-flex;
+  -webkit-display: inline-flex;
+}
+@mixin directionColumn {
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
+}
+@mixin directionRow {
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+}
+@mixin directionRowReverse {
+  flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  -moz-flex-direction: row-reverse;
+  -webkit-flex-direction: row-reverse;
+}
+
+@mixin flexWrap {
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+@mixin alignItemsStretch {
+  align-items: stretch;
+  -ms-align-items: stretch;
+  -moz-align-items: stretch;
+  -webkit-align-items: stretch;
+}
+@mixin alignItemsStart {
+  align-items: flex-start;
+  -ms-align-items: flex-start;
+  -moz-align-items: flex-start;
+  -webkit-align-items: flex-start;
+}
+@mixin alignItemsEnd {
+  align-items: flex-end;
+  -ms-align-items: flex-end;
+  -moz-align-items: flex-end;
+  -webkit-align-items: flex-end;
+}
+@mixin alignItemsCenter {
+  align-items: center;
+  -ms-align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+}
+@mixin alignContentStart {
+  align-content: flex-start;
+  -ms-align-content: flex-start;
+  -moz-align-content: flex-start;
+  -webkit-align-content: flex-start;
+}
+@mixin alignContentEnd {
+  align-content: flex-end;
+  -ms-align-content: flex-end;
+  -moz-align-content: flex-end;
+  -webkit-align-content: flex-end;
+}
+@mixin alignContentCenter {
+  align-content: center;
+  -ms-align-content: center;
+  -moz-align-content: center;
+  -webkit-align-content: center;
+}
+@mixin justifyContentEnd {
+  justify-content: flex-end;
+  -ms-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+}
+@mixin justifyContentStart {
+  justify-content: flex-start;
+  -ms-justify-content: flex-start;  
+  -moz-justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+}
+@mixin justifyContentCenter {
+  justify-content: center;
+  -ms-justify-content: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+}
+@mixin justifyContentEnd {
+  justify-content: flex-end;
+  -ms-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+}
+@mixin justifySpaceBetween {
+  justify-content: space-between;
+  -ms-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+
+// common class styles
+.flex-v-center,
+.flex-h-center,
+.flex-space-between,
+.flex-hv-center,
+.flex-vh-center {
+  @include displayFlex;
+}
+.flex-v-center {
+  @include alignItemsCenter;
+}
+.flex-h-center {
+  @include justifyContentCenter;
+}
+.flex-hv-center,
+.flex-vh-center {
+  @include alignItemsCenter;
+  @include justifyContentCenter;
+}
+.flex-space-between {
+  @include justifySpaceBetween;
+}
+
+// Alignment
+@mixin  right-auto {
+    right: auto;
+}
+@mixin  left-auto {
+    left: auto;
+}
+@mixin  top-auto {
+    top: auto;
+}
+@mixin  bottom-auto {
+    bottom: auto;
+}
+
+@mixin right($value) {
+    right: PXOnly($value);
+}
+@mixin left-0 { left: 0; }
+@mixin right-0 { right: 0; }
+@mixin  top-0 { top: 0; }
+@mixin bottom-0 { bottom:0 }
+.left-0 { @include left-0; }
+.right-0 { @include right-0; }

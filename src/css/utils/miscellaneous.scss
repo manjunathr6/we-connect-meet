@@ -1,0 +1,6 @@
+.b-hairline {
+    border-bottom: 1px solid lighten($black, 90%);
+}
+.bgImg {
+    @include bgImg();
+}

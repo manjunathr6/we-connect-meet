@@ -1,0 +1,44 @@
+.border-red {
+    border: 1px solid red;
+}
+.border-green {
+    border: 1px solid green;
+}
+.border-blue {
+    border: 1px solid blue;
+}
+
+.side-nav {
+    @include position-relative;
+    @include screenTablet {
+        &::after {
+            content: '';
+            @include right-0;
+            height: calc(100% - 80px);
+            @include position-absolute;
+            border-right: 1px solid rgba($color: #000000, $alpha: 0.1);
+        }
+    }
+    ul {
+        li {
+            width: 60px;
+            height: 60px;
+            @include border-radius(10);
+            img {
+                width: onlyPX(30);
+            }
+            // &.active {
+            //     background-color: grey;
+            // }
+        }
+    }
+}
+
+.profile {
+    .person {
+        width: onlyPX(46);
+        height: onlyPX(46);
+        @include bg-color($grey);
+        @include border-radius-50;
+    }
+}

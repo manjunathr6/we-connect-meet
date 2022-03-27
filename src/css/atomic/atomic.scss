@@ -1,0 +1,51 @@
+
+// Prefixes for general use
+$prefixes: 'sm-', 'md-' 'lg-';
+
+// Functions
+// Pixel to rem function
+@function pixelToRem($value) {
+  @return #{($value / $base-value)}rem;
+}
+@function pixelToEm($value) {
+  @return #{($value / $media-base)}em;
+}
+@function onlyPX($value) {
+  @return #{$value}px;
+}
+
+@mixin attrValue($attr, $value) {
+  #{$attr}: #{$value};
+}
+@mixin keyAttrValue($attr, $key, $value) {
+  &-#{$key} {
+      @include attrValue($attr, $value);
+  }
+}
+@mixin spacingXY($attr, $attr2, $key, $value) {
+  &-#{$key} {
+      @include attrValue($attr, $value);
+      @include attrValue($attr2, $value);
+  }
+}
+
+// A recursive method
+
+@mixin recursiveMap($map, $attribute, $prefix: '-', $separator: '', $base: '') {
+  @each $key, $value in $map {
+      &#{if($key != $base, #{$prefix}#{$key}, '')} {
+          @if type-of($value) == 'map' {
+              @include recursiveMap($value, $attribute, $separator);
+          } @else {
+              #{$attribute}: $value;
+          }
+      }
+  }
+}
+
+// IE specific styling
+@mixin ieOnly {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      @content;
+  }
+}
