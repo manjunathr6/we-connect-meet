@@ -1,0 +1,9 @@
+.form-container {
+    @include screenTablet {
+        top: 50%;
+        @include m-auto;
+        max-width: onlyPX(360);
+        transform: translateY(-50%);
+        @include position-relative;
+    }
+}

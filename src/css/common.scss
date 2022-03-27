@@ -26,6 +26,14 @@ textarea {
     @include family(inherit);
     @include borderSolid(1, $grey-light);
 }
+input {
+    @include py(8, 8);
+    @include px(15, 15);
+    @include f-size(15);
+    @include weight-medium;
+    @include border-radius(6);
+    @include borderColor($grey);
+}
 img {
     width: 100%;
 }

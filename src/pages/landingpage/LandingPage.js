@@ -40,7 +40,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div className="container md-d-flex justify-between">
-        <LeftSideNav data={this.state.sideNavItems} />
+        <LeftSideNav data={this.state.sideNavItems} login={false} />
         <section className="main md-h-vh flex-1 px-5 py-9 scrol-y">
           <div className="md-d-flex justify-between items-center b-hairline pb-4 text-center">
             <div className="sm-mb-3">

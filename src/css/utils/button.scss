@@ -1,6 +1,5 @@
 .button {
   @include talign-center;
-  @include d-inlineBlock;
   a, button {
     @include lh(21);
     @include py(6, 6);

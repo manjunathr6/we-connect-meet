@@ -17,7 +17,7 @@ function LeftSideNav(props) {
           {actionItems}
         </ul>
       </nav>
-      <Profile />
+      {props.login ? "" : <Profile />}
     </aside>
   );
 }
