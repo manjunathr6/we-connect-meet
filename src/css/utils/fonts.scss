@@ -2,11 +2,17 @@
     font-size: pixelToRem($val);
 }
 
+.f-12 {
+    font-size: pixelToRem(12);
+}
 .f-14 {
     font-size: pixelToRem(14);
 }
 .f-16 {
     font-size: pixelToRem(16);
+}
+.f-15 {
+    font-size: pixelToRem(15);
 }
 .f-18 {
     font-size: pixelToRem(18);
@@ -98,6 +104,12 @@
 }
 .fw-bold {
     font-weight: $fw-bold;
+}
+
+// Font family
+
+.family-inherit {
+    font-family: inherit;
 }
 
 // Text alignment descoration

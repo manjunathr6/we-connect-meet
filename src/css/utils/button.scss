@@ -1,22 +1,28 @@
 .button {
-  text-align: center;
-  display: inline-block;
+  @include talign-center;
+  @include d-inlineBlock;
   a, button {
     @include lh(21);
     @include py(6, 6);
     @include px(20,20);
-    @include f-size(14);
+    @include f-size(14); 
     @include weight-600;
     @include color($white);
     @include d-inlineBlock;
     @include letter-space(0.8);
     @include border-radius(6);
     @include bg-color($green);
-
-    &.--grey {
+  }
+  &.--grey {
+    a, button {
       @include color($grey);
       @include bg-color($grey-lighter);
     }
-
+  }
+  &.--blueLighter {
+    a, button {
+      @include color($blue-dark);
+      @include bg-color($blue-lighter);
+    }
   }
 }

@@ -42,3 +42,73 @@
         @include border-radius-50;
     }
 }
+
+// Right otpions nav
+
+.options-section {
+    .options-nav-right {
+        white-space: nowrap;
+        @include overflow(auto);
+    }
+}
+.preview-img-container {
+    .button {
+        left: 50%;
+        bottom: onlyPX(26);
+        @include position-absolute;
+        transform: translateX(-50%);
+    }
+}
+
+.main-nav-section-box {
+    @include screenTablet {
+        @include max-width(500);
+    }
+    .available-items {
+        &.opened {
+            @include bg-color($blue-lighter);
+            .arrow {
+                transform: rotate(180deg);
+            }
+        }
+        &,
+        .upload-backgrounds .img-wrapper,
+        li {
+            overflow: hidden;
+            @include border-radius(6);
+        }
+        li {
+            .img-wrapper {
+                @include height(87);
+                @include borderSolid(1, transparent);
+                &.active {
+                    @include borderColor($blue-dark);
+                }
+            }
+            img {
+                @include height-100;
+            }
+        }
+        .upload-backgrounds {
+            @include position-relative;
+            .img-wrapper {
+                @include d-flex;
+                @include alignItemsCenter;
+                @include bg-color($white);
+                @include justifyContentCenter;
+            }
+            img {
+                @include max-width(40);
+            }
+            input {
+                @include left-0;
+                @include top-0;
+                @include width-100;
+                @include opacity(0);
+                @include height-100;
+                @include position-absolute;
+            }
+        }
+    }
+}
+

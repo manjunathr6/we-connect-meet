@@ -20,6 +20,9 @@ border-bottom: onlyPX($size) solid $color
 @mixin borderTopSolid($size, $color){
   border-top: onlyPX($size) solid $color
 }
+@mixin borderColor($color){
+  border-color: $color
+}
 
 // Border Radius 
 @mixin border-radius-50{

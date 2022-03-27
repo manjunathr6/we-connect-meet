@@ -19,6 +19,13 @@ a {
     color: inherit;
     text-decoration: none;
 }
+input,
+textarea {
+    resize: none;
+    @include width-100;
+    @include family(inherit);
+    @include borderSolid(1, $grey-light);
+}
 img {
     width: 100%;
 }

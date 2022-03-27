@@ -1,63 +1,63 @@
 import React, { Component } from "react";
-import { data } from "../../content/data";
+import MainSectionRight from "../../components/mainSectionRight/MainSectionRight";
+import LeftSideNav from "../../components/left-side-nav/LeftSideNav";
+import MainSectionLeft from "../../components/mainSectionLeft/MainSectionLeft";
+import Select from "../../components/dropdown/Select";
+import Button from "../../components/buttons/Button";
 
 // selecting the local images
 import iconChoose from "../../assets/choose.svg";
 import iconVideo from "../../assets/video-icon.svg";
 import iconBrowse from "../../assets/browse.svg";
+import uploadImg from "../../assets/upload.svg";
+import officeImag from "../../assets/office.png";
+import spaceImg from "../../assets/space.png";
+import noiseIMg from "../../assets/noise.png";
+import meetingRoomImg from "../../assets/meeting-room.png";
+import booksImg from "../../assets/books.png";
+import deskImg from "../../assets/desk.png";
 
 class LandingPage extends Component {
+  // Just adding the data in state
+  state = {
+    sideNavItems: [
+      { icon: `${iconChoose}`, name: "choose" },
+      { icon: `${iconVideo}`, name: "Choose Video" },
+      { icon: `${iconBrowse}`, name: "Browse" },
+    ],
+    backgroundImgs: [
+      { image: `${uploadImg}`, name: "Upload" },
+      { image: `${officeImag}`, name: "Office" },
+      { image: `${spaceImg}`, name: "Space" },
+      { image: `${noiseIMg}`, name: "Noise" },
+      { image: `${meetingRoomImg}`, name: "Meeting Room" },
+      { image: `${booksImg}`, name: "Books" },
+      { image: `${deskImg}`, name: "Desk" },
+    ],
+    dropdowns: ["Saying Hi to my customers", "Saying Hi to my customers2"],
+  };
+
   render() {
-    console.log("data..", data.images);
     return (
-      <div>
-        <div className="container md-d-flex justify-between">
-          <aside className="side-nav md-h-vh md-py-8 py-3 sm-px-4 d-flex justify-between md-direction-column items-center">
-            <nav className="">
-              <ul className="d-flex md-direction-column w-100 sm-colGap-3 md-px-4 md-rowGap-4">
-                <li className="d-flex align-center justify-center">
-                  <img src={iconChoose} width="34px" alt="choose" />
-                </li>
-                <li className="d-flex align-center justify-center active">
-                  <img src={iconVideo} width="34px" alt="Video" />
-                </li>
-                <li className="d-flex align-center justify-center bg-color-blueLighter">
-                  <img src={iconBrowse} width="34px" alt="browse more" />
-                </li>
-              </ul>
-            </nav>
-            <div className="profile">
-              <span className="d-flex justify-center items-center person">
-                MR
-              </span>
+      <div className="container md-d-flex justify-between">
+        <LeftSideNav data={this.state.sideNavItems} />
+        <section className="main md-h-vh flex-1 px-5 py-9 scrol-y">
+          <div className="md-d-flex justify-between items-center b-hairline pb-4 text-center">
+            <div className="sm-mb-3">
+              <Select options={this.state.dropdowns} />
             </div>
-          </aside>
-          <section className="main md-h-vh flex-1 px-5 py-9">
-            <div className="md-d-flex justify-between items-center b-hairline pb-4">
-              <select
-                name="video type"
-                id="dropdown"
-                value="select one"
-                className="f-18 md-f-22"
-              >
-                <option value="Saying Hi to my customers">
-                  Saying Hi to my customers
-                </option>
-                <option value="Saying Hi to my customers2">
-                  Saying Hi to my customers2
-                </option>
-              </select>
-              <div className="button-wrap button">
-                <button className="mr-3 --grey">Cancel</button>
-                <button>Save</button>
-              </div>
+            <div className="button-wrap">
+              <Button class="--grey mr-3" name="Cancel" />
+              <Button name="Save" />
             </div>
-            <div className="md-d-flex">
-              <div className="flex-1">Preview</div>
-              <div className="">Controls</div>
+          </div>
+          <div className="md-d-flex md-colGap-4">
+            <MainSectionLeft />
+            <div className="options-section">
+              <MainSectionRight data={this.state.backgroundImgs} />
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
     );
   }

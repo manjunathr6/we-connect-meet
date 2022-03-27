@@ -35,6 +35,15 @@ $justify: (
   between: space-between,
 );
 
+$gridTemplateColumn: (
+  1: 1fr,
+  2: repeat(2, 1fr),
+  3: repeat(3, 1fr),
+  4: repeat(4, 1fr),
+  5: repeat(5, 1fr),
+  6: repeat(6, 1fr),
+);
+
 $overflow: hidden, auto, scroll, visible;
 
 //NOTE:- Prefixes are available in _atomic.scss file
@@ -113,10 +122,22 @@ $prefix: '';
         @include recursiveMap($justify, $attribute: 'justify-content',);
     }
 }
+@mixin gridTempColumns($prefix) {
+    .#{$prefix}grid-col {
+        @include recursiveMap($gridTemplateColumn, $attribute: 'grid-template-columns',);
+    }
+}
+@mixin gridTempRows($prefix) {
+    .#{$prefix}grid-row {
+        @include recursiveMap($gridTemplateColumn, $attribute: 'grid-template-rows',);
+    }
+}
 
 @include flexDirection('');
 @include alignItem('');
 @include justifyContent('');
+@include gridTempColumns('');
+@include gridTempRows('');
 
 @include displayStyles(); // default - mostly desktop
 
@@ -125,20 +146,22 @@ $prefix: '';
   @include flexDirection('sm-');
   @include alignItem('sm-');
   @include justifyContent('sm-');
+  @include gridTempColumns('sm-');
+@include gridTempRows('sm-');
 }
 @include screenTablet {
   @include displayStyles('md-'); // Tablet style
   @include flexDirection('md-');
   @include alignItem('md-');
   @include justifyContent('md-');
+  @include gridTempColumns('md-');
+  @include gridTempRows('md-');
 }
 @include screenDesktop {
   @include displayStyles('lg-'); // Tablet+ or iPad-max style
   @include flexDirection('lg-');
   @include alignItem('lg-');
   @include justifyContent('lg-');
-}
-
-.flex-1 {
-    flex: 1;
+  @include gridTempColumns('lg-');
+  @include gridTempRows('lg-');
 }

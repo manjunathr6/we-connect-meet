@@ -320,6 +320,15 @@
 @mixin height-8 { height: 8rem; }
 @mixin height-9 { height: 9rem; }
 @mixin height-10 { height: 10rem; }
+@mixin height($value) {
+    height: pixelToRem($value);
+}
+@mixin max-height($value) {
+    max-height: pixelToRem($value);
+}
+@mixin min-height($value) {
+    min-height: pixelToRem($value);
+}
 
 // Width
 @mixin width-0 { width: 0; }
@@ -334,6 +343,9 @@
 @mixin width-50 { width: 50%; }
 @mixin width-60 { width: 60%; }
 @mixin width-75 { width: 75%; }
+@mixin max-width($value) {
+    max-width: pixelToRem($value);
+}
 
 // Object fit properties to container
 
@@ -349,3 +361,8 @@
 @mixin  float-left { float: left; }
 @mixin  float-right { float: right; }
 
+// Overflow
+
+@mixin overflow($value) {
+    overflow: $value;
+}
