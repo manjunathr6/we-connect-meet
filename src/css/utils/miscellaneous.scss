@@ -1,0 +1,27 @@
+// Images
+.bgImg {
+    @include bgImg();
+}
+// Borders & Radius
+.b-hairline {
+    border-bottom: 1px solid lighten($black, 90%);
+}
+.radius-6 {
+    border-radius: onlyPX(6);
+}
+.radius-20 {
+    border-radius: onlyPX(20);
+}
+// Displays
+.flex-1 {
+    flex: 1;
+}
+
+// scroll
+
+.scrol-y {
+    overflow-y: scroll;
+}
+.scrol-x {
+    overflow-x: scroll;
+}

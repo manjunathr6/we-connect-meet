@@ -1,0 +1,179 @@
+// Layout mixins
+@mixin screen-width($point) {
+    @if $point == mobile {
+        @media screen and (max-width: $mobile-screen) {
+            @content;
+        }
+    }
+    @else if $point == tablet {
+        @media screen and (max-width: $tablet-screen) {
+            @content;
+        }
+    }
+    @else if $point == desktop {
+        @media screen and (min-width: $desktop-screen) {
+            @content;
+        }
+    }
+    @else if $point == mobilePlus {
+        @media screen and (min-width: $mobile-screen + 1) {
+            @content;
+        }
+    }
+    @else if $point == mobileLandscape {
+        @media screen and (max-height: 420px) and (min-height: 320px) {
+            @content;
+        }
+    }
+}
+
+@mixin circle($dimention) {
+    width: $dimention;
+    height: $dimention;
+    border-radius: 50%;
+}
+
+// Displays
+
+@mixin d-block() {
+    display: block;
+}
+@mixin d-inlineBlock() {
+    display: inline-block;
+}
+@mixin d-inline() {
+    display: inline;
+}
+@mixin d-flex() {
+    display: flex;
+}
+// font weights
+@mixin weight-lighter() {
+    font-weight: $fw-lighter;
+}
+@mixin weight-light() {
+    font-weight: $fw-light;
+}
+@mixin weight-semiRegular() {
+    font-weight: $fw-semiRegular;
+}
+@mixin weight-regular() {
+    font-weight: $fw-regular;
+}
+@mixin weight-semiBold() {
+    font-weight: $fw-semiBold;
+}
+@mixin weight-bold() {
+    font-weight: $fw-bold;
+}
+
+// class style mixins
+$wrap: false;
+$column: false;
+@mixin display-flex($column) {
+    display: flex;
+    align-items: center;
+    flex-wrap: if($wrap, wrap, nowrap);
+    flex-direction: if($column, column, row);
+}
+@mixin flex-justify($justify) {
+    justify-content: $justify;
+}
+
+@mixin standeredPad($topBottom) {
+    padding: $topBottom 30px;
+    @include screen-width($mobile) {
+        padding: $topBottom 10px;
+    }
+}
+
+@mixin autoFill($minMax, $mobile-direction) {
+    display: grid;
+    grid-row-gap: 2rem;
+    grid-column-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax($minMax, 1fr));
+    @include screen-width($mobile) {
+        flex-direction: $mobile-direction;
+    }
+}
+
+// Animation mixins
+@mixin transition($tra-prop) {
+    transition: $tra-prop 0.4s ease-in-out;
+}
+
+
+// image and bg image
+@mixin bgImg() {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+}
+
+// Position Placing
+// Positons
+@mixin positionRelative() {
+    position: relative;
+}
+@mixin positionAbsolute() {
+    position: absolute;
+}
+@mixin positionFixed() {
+    position: fixed;
+}
+@mixin positionSticky() {
+    position: sticky;
+}
+
+$val1: 10px;
+$val2: 10px;
+@mixin place-topRight($val1, $val2) {
+    top: $val1;
+    right: $val2;
+}
+@mixin place-topLeft($val1, $val2) {
+    top: $val1;
+    left: $val2;
+}
+@mixin place-bottomRight($val1, $val2) {
+    bottom: $val1;
+    right: $val2;
+}
+@mixin place-bottomLeft($val1, $val2) {
+    top: $val1;
+    left: $val2;
+}
+
+// Padding and margins
+@mixin pad-v($val) {
+    padding-top: $val;
+    padding-bottom: $val;
+}
+@mixin pad-h($val) {
+    padding-left: $val;
+    padding-right: $val;
+}
+@mixin pad-t($val) {
+    padding-top: $val;
+}
+@mixin pad-r($val) {
+    padding-right: $val;
+}
+@mixin pad-b($val) {
+    padding-bottom: $val;
+}
+@mixin pad-l($val) {
+    padding-left: $val;
+}
+
+// Pixel to rem
+
+@function pixelToRem($value) {
+    @return #{$value / $base-value}rem;
+}
+
+// text style
+@mixin letterSpacing($val) {
+    letter-spacing: $val;
+}

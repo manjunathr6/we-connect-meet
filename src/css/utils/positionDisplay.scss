@@ -1,0 +1,167 @@
+@import '../atomic/atomic';
+
+$displays: (
+    block: block,
+    inlineBlock: inline-block,
+    flex: flex,
+    none: none,
+    grid: grid,
+    inlineGrid: inline-grid
+);
+$flexWrap: (
+    wrap: wrap,
+    nowrap: nowrap
+);
+$position: (
+    relative: relative,
+    absolute: absolute,
+    fixed: fixed
+);
+
+$directions: (
+    column: column,
+    row: row,
+);
+
+$align: (
+  center: center,
+  start: flex-start,
+  end: flex-end,
+);
+$justify: (
+  center: center,
+  start: flex-start,
+  end: flex-end,
+  between: space-between,
+);
+
+$gridTemplateColumn: (
+  1: 1fr,
+  2: repeat(2, 1fr),
+  3: repeat(3, 1fr),
+  4: repeat(4, 1fr),
+  5: repeat(5, 1fr),
+  6: repeat(6, 1fr),
+);
+
+$overflow: hidden, auto, scroll, visible;
+
+//NOTE:- Prefixes are available in _atomic.scss file
+
+@mixin displayStyles($prefix: '') {
+  @if ($prefix == '') {
+    .hide {
+        display: none;
+    }
+  } @else {
+    @each $value in $prefixes {
+      @if $value == $prefix {
+        .#{$prefix}hide {
+            display: none;
+        }
+        .#{$prefix}show {
+            display: block;
+        }
+      } @else {
+        .#{$value}show {
+            display: none;
+        }
+      }
+    }
+  }
+.#{$prefix}d {
+  @each $key, $value in $displays {
+      @if $key == grid {
+        &-#{$key} {
+          display: -ms-grid;
+          display: grid;
+        }
+      } @else {
+          @include keyAttrValue('display', $key, $value);
+      }
+    }
+  }
+  .#{$prefix}position {
+    @each $key, $value in $position {
+        @include keyAttrValue('position', $key, $value);
+    }
+  }
+  .#{$prefix}flex {
+      @each $key, $value in $flexWrap {
+          @include keyAttrValue('flex-wrap', $key, $value);
+      }
+  }
+  .#{$prefix}overflow {
+      @each $value in $overflow {
+          @include keyAttrValue('overflow', $value, $value);
+      }
+  }
+  .#{$prefix}opacity-0 {
+      opacity: 0;
+  }
+  .#{$prefix}opacity-1 {
+      opacity: 1;
+  }
+  
+}
+
+$prefix: '';
+
+@mixin flexDirection($prefix) {
+    .#{$prefix}direction {
+        @include recursiveMap($directions, $attribute: 'flex-direction',);
+    }
+}
+@mixin alignItem($prefix) {
+    .#{$prefix}items {
+        @include recursiveMap($align, $attribute: 'align-items',);
+    }
+}
+@mixin justifyContent($prefix) {
+    .#{$prefix}justify {
+        @include recursiveMap($justify, $attribute: 'justify-content',);
+    }
+}
+@mixin gridTempColumns($prefix) {
+    .#{$prefix}grid-col {
+        @include recursiveMap($gridTemplateColumn, $attribute: 'grid-template-columns',);
+    }
+}
+@mixin gridTempRows($prefix) {
+    .#{$prefix}grid-row {
+        @include recursiveMap($gridTemplateColumn, $attribute: 'grid-template-rows',);
+    }
+}
+
+@include flexDirection('');
+@include alignItem('');
+@include justifyContent('');
+@include gridTempColumns('');
+@include gridTempRows('');
+
+@include displayStyles(); // default - mostly desktop
+
+@include screenPhone {
+  @include displayStyles('sm-'); //mobile styles
+  @include flexDirection('sm-');
+  @include alignItem('sm-');
+  @include justifyContent('sm-');
+  @include gridTempColumns('sm-');
+@include gridTempRows('sm-');
+}
+@include screenTablet {
+  @include displayStyles('md-'); // Tablet style
+  @include flexDirection('md-');
+  @include alignItem('md-');
+  @include justifyContent('md-');
+  @include gridTempColumns('md-');
+  @include gridTempRows('md-');
+}
+@include screenDesktop {
+  @include displayStyles('lg-'); // Tablet+ or iPad-max style
+  @include flexDirection('lg-');
+  @include alignItem('lg-');
+  @include justifyContent('lg-');
+  @include gridTempColumns('lg-');
+  @include gridTempRows('lg-');
+}

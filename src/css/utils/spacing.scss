@@ -1,0 +1,200 @@
+// spacing base value($spacing-base) comes from _variables.scss
+// keeping the padding and margins in pixels because we might want them specific. Not adaptable
+$spacingValues: (
+  0: 0,
+  1: onlyPX($spacing-base),
+  2: onlyPX($spacing-base * 2),
+  3: onlyPX($spacing-base * 3),
+  4: onlyPX($spacing-base * 4),
+  5: onlyPX($spacing-base * 5),
+  6: onlyPX($spacing-base * 6),
+  7: onlyPX($spacing-base * 7),
+  8: onlyPX($spacing-base * 8),
+  9: onlyPX($spacing-base * 9),
+  10: onlyPX($spacing-base * 10),
+  auto: auto,
+  -1: onlyPX(-$spacing-base),
+  -2: onlyPX($spacing-base * -2),
+  -3: onlyPX($spacing-base * -3),
+  -4: onlyPX($spacing-base * -4),
+  -5: onlyPX($spacing-base * -5),
+  -6: onlyPX($spacing-base * -6)
+);
+
+
+@mixin spacingMixin($prefix: '') {
+  $types: (
+    p: padding,
+    m: margin,
+  );
+  @each $class, $attribute in $types {
+    .#{$prefix}#{$class} {
+        @each $key, $value in $spacingValues {
+          @include keyAttrValue($attribute, $key, $value);
+
+          &t {
+            @include keyAttrValue(#{$attribute}-top, $key, $value);
+          }
+          &r {
+            @include keyAttrValue(#{$attribute}-right, $key, $value);
+          }
+          &b {
+            @include keyAttrValue(#{$attribute}-bottom, $key, $value);
+          }
+          &l {
+            @include keyAttrValue(#{$attribute}-left, $key, $value);
+          }
+          &y {
+            @include spacingXY(#{$attribute}-top, #{$attribute}-bottom, $key, $value);
+          }
+          &x {
+            @include spacingXY(#{$attribute}-left, #{$attribute}-right, $key, $value);
+          }
+      }
+    }
+  }
+}
+
+// Widths
+$widths: (
+    0: 0,
+    15: 15%,
+    20: 20%,
+    25: 25%,
+    30: 30%,
+    33: 33%,
+    41: 41.66667%,
+    50: 50%,
+    60: 60%,
+    66: 66%,
+    75: 75%,
+    85: 85%,
+    100: 100%,
+    60px: 60px,
+    100px: 100px,
+    auto: auto,
+    20px: 20px,
+    25px: 25px
+);
+
+@mixin widthMixin($prefix: '') {
+    @each $key, $value in $widths {
+        .#{$prefix}width {
+            @include keyAttrValue('width', $key, $value);
+        }
+        .#{$prefix}min-width {
+            @include keyAttrValue('min-width', $key, $value);
+        }
+        .#{$prefix}max-width {
+            @include keyAttrValue('max-width', $key, $value);
+        }
+    }
+}
+$widths: (
+    0: 0,
+    15: 15%,
+    20: 20%,
+    25: 25%,
+    33: 33%,
+    41: 41.66667%,
+    50: 50%,
+    66: 66%,
+    75: 75%,
+    85: 85%,
+    100: 100%,
+    60px: 60px,
+    100px: 100px,
+    auto: auto,
+    20px: 20px,
+    25px: 25px,
+    vw: 100vw,
+);
+@mixin widthMixin($prefix: '') {
+    @each $key, $value in $widths {
+        .#{$prefix}w {
+            @include keyAttrValue('width', $key, $value);
+        }
+        .#{$prefix}min-w {
+            @include keyAttrValue('min-width', $key, $value);
+        }
+        .#{$prefix}max-w {
+            @include keyAttrValue('max-width', $key, $value);
+        }
+    }
+}
+
+// Hieghts
+$heights: (
+    0: 0,
+    100: 100%,
+    auto: auto,
+    4: 4rem,
+    5: 5rem,
+    6: 6rem,
+    7: 7rem,
+    8: 8rem,
+    9: 9rem,
+    10: 10rem,
+    20px: 20px,
+    25px: 25px,
+    vh: 100vh,
+);
+@mixin heightMixin($prefix: '') {
+    @each $key, $value in $heights {
+        .#{$prefix}h {
+            @include keyAttrValue('height', $key, $value);
+        }
+        .#{$prefix}min-h {
+            @include keyAttrValue('min-height', $key, $value);
+        }
+        .#{$prefix}max-h {
+            @include keyAttrValue('max-height', $key, $value);
+        }
+    }
+}
+
+// Flex/Grid gaps
+
+@mixin gap($prefix: '') {
+  $gaps: (
+    colGap: 'column-gap',
+    rowGap: 'row-gap',
+  );
+  @each $class, $attribute in $gaps {
+    .#{$prefix}#{$class} {
+        @each $key, $value in $spacingValues {
+          @include keyAttrValue($attribute, $key, $value);
+  
+        }
+    }
+  }
+}
+
+@include gap('');
+
+// Paddings
+@include spacingMixin();
+// Widths
+@include widthMixin();
+// Heights
+@include heightMixin();
+
+// Media styles
+@include screenPhone() {
+  @include spacingMixin('sm-');
+  @include widthMixin('sm-');
+  @include heightMixin('sm-');
+  @include gap('sm-');
+}
+@include screenTablet() {
+  @include spacingMixin('md-');
+  @include widthMixin('md-');
+  @include heightMixin('md-');
+  @include gap('md-');
+}
+@include screenTabletMax() {
+  @include spacingMixin('lg-');
+  @include widthMixin('lg-');
+  @include heightMixin('lg-');
+  @include gap('lg-');
+}

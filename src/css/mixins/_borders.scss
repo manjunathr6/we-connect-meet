@@ -1,0 +1,34 @@
+@mixin borderSolid($value, $color) {
+  border: #{$value}px solid $color;
+}
+@mixin borderDashed($value, $color) {
+  border: #{$value}px dashed $color;
+}
+@mixin borderDotted($value, $color) {
+  border: #{$value}px dotted $color;
+}
+@mixin borderColorInherit() {
+  border-color: inherit;
+}
+@mixin borderNone() {
+  border: none;
+}
+@mixin borderBottomSolid($size, $color){
+border-bottom: onlyPX($size) solid $color
+}
+
+@mixin borderTopSolid($size, $color){
+  border-top: onlyPX($size) solid $color
+}
+@mixin borderColor($color){
+  border-color: $color
+}
+
+// Border Radius 
+@mixin border-radius-50{
+  border-radius: 50%;
+}
+@mixin border-radius($value){
+  border-radius: onlyPX($value);
+}
+

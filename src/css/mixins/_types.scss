@@ -1,0 +1,169 @@
+// font weight
+@mixin weight-900 { font-weight: $fw-boldest; }
+@mixin weight-800 { font-weight: $fw-bolder; }
+@mixin weight-700 { font-weight: $fw-bold; }
+@mixin weight-600 { font-weight: $fw-semiBold; }
+@mixin weight-500 { font-weight: $fw-regular; }
+@mixin weight-400 { font-weight: $fw-semiRegular; }
+@mixin weight-300 { font-weight: $fw-light; }
+
+@mixin weight-bold { font-weight: $fw-bold; }
+@mixin weight-semibold { font-weight: $fw-semiBold; }
+@mixin weight-regular { font-weight: $fw-semiRegular; }
+@mixin weight-medium { font-weight: $fw-regular; }
+@mixin weight-light { font-weight: $fw-light; }
+@mixin weight-inherit { font-weight: inherit; }
+
+// Font family
+
+@mixin family($value) {
+  font-family: $value;
+}
+
+// Font sizes
+@mixin f-size($value) {
+  font-size: pixelToRem($value);
+}
+@mixin f-size-6 {
+  font-size: pixelToRem(60);
+  line-height: pixelToRem(60);
+}
+@mixin f-size-5 {
+  font-size: pixelToRem(40);
+  line-height: pixelToRem(40);
+}
+@mixin f-size-4 {
+  font-size: pixelToRem(30);
+  line-height: pixelToRem(30);
+}
+@mixin f-size-3 {
+  font-size: pixelToRem(20);
+  line-height: pixelToRem(20);
+}
+@mixin f-size-2 {
+  font-size: pixelToRem(17);
+  line-height: pixelToRem(24);
+}
+@mixin f-size-1 {
+  font-size: pixelToRem(16);
+  line-height: pixelToRem(21);
+}
+@mixin size-body {
+  font-size: pixelToRem(15);
+  line-height: pixelToRem(26);
+}
+@mixin f-size-inherit {
+  font-size: inherit;
+}
+// font sizes
+// Custom font size
+@mixin fontSize($size) {
+  font-size: pixelToRem($size);
+}
+
+@mixin f-30 {
+  font-size: pixelToRem(30);
+}
+@mixin f-20 {
+  font-size: pixelToRem(20);
+}
+@mixin f-18 {
+  font-size: pixelToRem(18);
+}
+@mixin f-15 {
+  font-size: pixelToRem(15);
+}
+@mixin f-11 {
+  font-size: pixelToRem(11);
+}
+// Line heights
+@mixin lh($value) {
+  line-height: pixelToRem($value);
+}
+// Custom line height
+@mixin lineHeight($value) {
+  line-height: pixelToRem($value);
+}
+@mixin lh-36 {
+  line-height: pixelToRem(36);
+}
+@mixin lh-26 {
+  line-height: pixelToRem(26);
+}
+@mixin lh-18 {
+  line-height: pixelToRem(18);
+}
+@mixin lh-15 {
+  line-height: pixelToRem(15);
+}
+@mixin lh-11 {
+  line-height: pixelToRem(11);
+}
+
+// Heading mixins
+@mixin h1 {
+  @include f-size-6();
+}
+@mixin h2 {
+  @include f-size-5();
+}
+@mixin h3 {
+  @include f-size-4();
+}
+@mixin h4 {
+  @include f-size-3();
+}
+@mixin h5 {
+  @include f-size-2();
+}
+@mixin h6 {
+  @include f-size-1();
+}
+
+// Text Decoration
+@mixin decoration-none { text-decoration: none; }
+@mixin decoration-underline { text-decoration: underline; }
+
+// Alignment
+$textValues: center, left, right;
+@mixin textAlign($prefix: '') {
+  .#{$prefix}text {
+    @each $value in $textValues {
+      @include keyAttrValue('text-align', $value, $value);
+    }
+  }
+}
+@mixin talign-left { text-align: left; }
+@mixin talign-center { text-align: center; }
+@mixin talign-right { text-align: right; }
+
+// text transformation
+@mixin text-upper { text-transform: uppercase; }
+@mixin text-lower { text-transform: lowercase; }
+@mixin text-capitalize { text-transform: capitalize; }
+
+//verticla Aligmnet
+@mixin valign-top { vertical-align: top; }
+@mixin valign-middle { vertical-align: middle; }
+@mixin valign-bottom { vertical-align: bottom; }
+@mixin  valign-textBottom { vertical-align: text-bottom; }
+  
+
+
+// List Style
+@mixin list-none {    
+    list-style-type: none;
+    @include ieOnly() {
+        list-style-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);    
+    }
+}
+@mixin list-bullet { list-style-type: disc; }
+@mixin list-inherit { list-style-type: inherit; }
+@mixin list-square { list-style-type: square; }
+@mixin list-circle { list-style-type: circle; }
+@mixin list-upperRoman { list-style-type: upper-roman; }
+@mixin list-lowerAlpha { list-style-type: lower-alpha; }
+
+@mixin letter-space($value) {
+    letter-spacing: onlyPX($value);
+}

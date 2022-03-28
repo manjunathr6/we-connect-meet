@@ -1,0 +1,48 @@
+// sizes
+$base-value: 16;
+$media-base: $base-value;
+$spacing-base: 5; //mainly for paddig, margin, left, right, top, bottom
+
+// Breakpoints
+$phone: 767;
+$tablet-max: 1024;
+$mobile: $phone; 
+$tablet: 768; 
+$desktop: 1440;
+
+// Colors
+$white: #ffffff;
+$black: #000000;
+$darkest: #070708;
+$green-dark: #0d7377;
+$safron-solid: #ff9a76;
+$yellow-solid: #fddb3a;
+$marun-red: #b32929;
+
+
+$dark: #222222;
+$grey: #999999;
+$grey-light: #F1F1F1;
+$grey-dark: #666666;
+$grey-lighter: #F4F4F4;
+$blue-dark: #3860AD; //Base color
+$blue-lighter: #EBF2FF;
+$green: #46B13D;
+
+// font family
+$poppins: 'Poppins', sans-serif;
+
+// Font-weights
+$fw-lighter: 200;
+$fw-light: 300;
+$fw-semiRegular: 400;
+$fw-regular: 500;
+$fw-semiBold: 600;
+$fw-bold: 700;
+$fw-bolder: 800;
+$fw-boldest: 900;
+
+// layouts
+$mobile-screen: 767px;
+$tablet-screen: 768px;
+$desktop-screen: 1024px;

@@ -1,0 +1,31 @@
+// The parameters($phone, $tablet..) values are from _variables.scss files.
+@mixin screenPhone {
+  @media screen and (max-width: pixelToEm($phone)) {
+    @content;
+  }
+}
+@mixin screenPhonePlus {
+  @media screen and (min-width: pixelToEm($phone + 1)) {
+    @content;
+  }
+}
+@mixin screenTablet {
+  @media screen and (min-width: pixelToEm($tablet)) {
+    @content;
+  }
+}
+@mixin screenTabletMax {
+  @media screen and (max-width: pixelToEm($tablet-max)) {
+    @content;
+  }
+}
+@mixin screenDesktop {
+  @media screen and (max-width: pixelToEm($desktop)) {
+    @content;
+  }
+}
+@mixin screenMinTablet {
+  @media screen and (min-width: pixelToEm($phone + 1)) {
+    @content;
+  }
+}
