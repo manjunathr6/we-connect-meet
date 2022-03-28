@@ -5,8 +5,6 @@ import LoginPage from "./pages/loginPage/LoginPage";
 
 function App() {
   const [validUser, setValidUser] = useState(false);
-  console.log("is valid user..", validUser);
-
   return (
     <div className="App">
       {validUser ? (

@@ -9,13 +9,11 @@ import Image from "../../components/backgrounds/Image";
 import loginPageBgImg from "../../assets/bg-image.png";
 
 function LoginPage(props) {
-  console.log("login pagess", props);
   const data = [{ icon: `${iconChoose}`, name: "Choose" }];
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = (eve) => {
     eve.preventDefault();
-    console.log("input values..", password, email);
     if (email !== "" && password !== "") {
       props.loginCheck(true);
     }
