@@ -1,9 +1,15 @@
-.form-container {
+
+.login-page {
     @include screenTablet {
-        top: 50%;
-        @include m-auto;
-        max-width: onlyPX(360);
-        transform: translateY(-50%);
-        @include position-relative;
+    .form-container {
+            top: 50%;
+            @include m-auto;
+            max-width: onlyPX(360);
+            transform: translateY(-50%);
+            @include position-relative;
+        }
+        .bg-img-login {
+            max-width: 35vw;
+        }
     }
 }

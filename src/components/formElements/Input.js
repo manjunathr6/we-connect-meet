@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 function Input(props) {
-  const [value, setValue] = useState("");
   const handleChange = (eve) => {
-    setValue(eve.target.value);
+    props.setValue(eve.target.value);
   };
   return (
     <div className={`mb-3 ${props.class}`}>
@@ -12,7 +11,7 @@ function Input(props) {
         id={props.id}
         type={props.type}
         placeholder={props.placeholder}
-        value={value}
+        value={props.value}
         onChange={handleChange}
       />
     </div>
