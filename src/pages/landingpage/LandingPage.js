@@ -26,7 +26,7 @@ class LandingPage extends Component {
       { icon: `${iconBrowse}`, name: "Browse" },
     ],
     backgroundImgs: [
-      { image: `${uploadImg}`, name: "Upload" },
+      { image: `${uploadImg}`, name: "Upload", upload: true },
       { image: `${officeImag}`, name: "Office" },
       { image: `${spaceImg}`, name: "Space" },
       { image: `${noiseIMg}`, name: "Noise" },

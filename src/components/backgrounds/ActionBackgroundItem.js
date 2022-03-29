@@ -3,7 +3,7 @@ import Paragraph from "../text/Paragraph";
 
 function ActionBackgroundItem(props) {
   return (
-    <li className="text-center">
+    <li className={`text-center ${props.item.upload ? "upload-icon" : ""}`}>
       <div className="img-wrapper">
         <img src={props.item.image} alt={props.item.name} />
       </div>

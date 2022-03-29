@@ -74,11 +74,23 @@
         }
         &,
         .upload-backgrounds .img-wrapper,
+        .upload-icon .img-wrapper,
         li {
+            
             overflow: hidden;
             @include border-radius(6);
         }
         li {
+            &.upload-icon {
+                .img-wrapper {
+                    @include d-flex;
+                    @include bg-color($white);
+                    @include alignItemsCenter;
+                    img {
+                        @include height(40)
+                    }
+                }
+            }
             .img-wrapper {
                 @include height(87);
                 @include borderSolid(1, transparent);
