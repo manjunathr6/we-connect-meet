@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { FixedSizeList as List } from "react-window";
 import PersonCard from "./PersonCard";
 import Input from "../formElements/Input";
 
@@ -33,6 +34,7 @@ function SearchPeople() {
     window.clearTimeout(debounceTimer);
     debounceTimer = window.setTimeout(callback, time);
   };
+
   // Updating the user data based on input valuesdehu8jicg
   const updateUsersData = () => {
     if (data.statuses && data.statuses.length > 0) {
@@ -48,8 +50,19 @@ function SearchPeople() {
     debounce(updateUsersData, 700);
   }, [inputValue]);
 
+  const Row = useCallback(
+    ({ index, style }) => {
+      return (
+        <li style={style}>
+          <PersonCard data={usersData[index]} />
+        </li>
+      );
+    },
+    [usersData]
+  );
+
   return (
-    <div className="bg-color-greyLighter h-vh py-10 px-6">
+    <div className="bg-color-greyLighter min-h-vh py-10 px-6">
       <div className="search-bar d-flex items-center colGap-4 w-75 m-auto pb-6">
         <Input
           id="search-field"
@@ -71,13 +84,28 @@ function SearchPeople() {
         </div>
       </div>
       <ul className="users-list">
-        {usersData.length > 0
+        {/* Styling for this has to be taken care.. */}
+        {usersData.length > 0 ? (
+          <List
+            height={450}
+            itemCount={usersData.length}
+            itemSize={60}
+            width={800}
+            className="m-auto"
+          >
+            {Row}
+          </List>
+        ) : (
+          noResult
+        )}
+
+        {/* {usersData.length > 0
           ? usersData.map((user) => (
               <li key={user.id}>
                 <PersonCard data={user} />
               </li>
             ))
-          : noResult}
+          : noResult} */}
       </ul>
     </div>
   );
