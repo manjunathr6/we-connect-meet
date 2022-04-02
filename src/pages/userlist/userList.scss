@@ -1,0 +1,47 @@
+.container {
+    .left-bar {
+        width: onlyPX(5);
+    }
+    .users {
+        @include overflow(auto);
+        @include px(25, 25);
+        .users-list {
+            @include d-grid;
+            @include gridCol(2);
+            @include girdGap(24);
+            word-break: break-all;
+            li {
+                @include border-radius(6);
+                box-shadow: 0px 2px 3px rgba(23, 45, 90, 0.13);
+    
+                &.user {
+                    .context-wrap {
+                        @include px(8, 8);
+                    }
+                    h4 {
+                        @include lineHeight(23);
+                    }
+                    .address {
+                        opacity: 0.5;
+                    }
+                }
+            }
+            .image-wrap {
+                img {
+                    @include border-radius(10);
+                }
+            }
+        }
+        @include screenTablet {
+            @include px(60, 60);
+            .users-list {
+                @include gridCol(6);
+            }
+        }
+    }
+    @include screenTablet {
+        .left-bar {
+            width: onlyPX(96);
+        }
+    }
+}

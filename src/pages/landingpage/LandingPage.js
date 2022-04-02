@@ -4,6 +4,7 @@ import LeftSideNav from "../../components/left-side-nav/LeftSideNav";
 import MainSectionLeft from "../../components/mainSectionLeft/MainSectionLeft";
 import Select from "../../components/dropdown/Select";
 import Button from "../../components/buttons/Button";
+import UserList from "../userlist/UserList";
 
 // selecting the local images
 import iconChoose from "../../assets/choose.svg";
@@ -57,6 +58,7 @@ class LandingPage extends Component {
               <MainSectionRight data={this.state.backgroundImgs} />
             </div>
           </div>
+          <UserList />
         </section>
       </div>
     );

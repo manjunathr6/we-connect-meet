@@ -25,3 +25,21 @@
 .scrol-x {
     overflow-x: scroll;
 }
+
+// Displays
+
+@mixin  gridCol($value) {
+    grid-template-columns: repeat($value, 1fr);
+}
+@mixin  gridRow($value) {
+    grid-template-rows: repeat($value, 1fr);
+}
+@mixin girdGap($value) {
+    grid-gap: onlyPX($value);
+}
+@mixin girdColGap($value) {
+    grid-column-gap: onlyPX($value);
+}
+@mixin girdRowGap($value) {
+    grid-row-gap: onlyPX($value);
+}

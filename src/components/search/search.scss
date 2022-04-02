@@ -1,0 +1,9 @@
+.users-list {
+    li {
+        margin-bottom: 10px;
+        box-shadow: 0px 1px 3px 0px lighten($color: $black, $amount: 80);
+        .img-wrapper {
+            @include width(44);
+        }
+    }
+}

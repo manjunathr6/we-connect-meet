@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import "./App.scss";
+import SearchPeople from "./components/search/SearchPeople";
 import LandingPage from "./pages/landingpage/LandingPage";
 import LoginPage from "./pages/loginPage/LoginPage";
+import UserList from "./pages/userlist/UserList";
 
 function App() {
   const [validUser, setValidUser] = useState(false);
   return (
     <div className="App">
-      {validUser ? (
+      <SearchPeople />
+
+      {/* {validUser ? (
         <LandingPage />
       ) : (
         <LoginPage loginCheck={setValidUser} valid={validUser} />
-      )}
-      {/* <LoginPage loginCheck={setValidUser} /> */}
+      )} */}
     </div>
   );
 }

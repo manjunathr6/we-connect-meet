@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import useSelectedValue from "./UseSelectedValue";
 
 function Select(props) {
-  const [value, setValue] = useState("Select option");
+  const [value, setValue] = useSelectedValue("Select option");
+  // console.log("what is it..", value, setValue, useSelectedValue("Hello"));
   const options = props.options.map((option) => {
     return (
       <option key={option} value={option}>
@@ -13,7 +15,11 @@ function Select(props) {
     setValue(eve.target.value);
   };
   return (
-    <select value={value} onChange={handleChange} className="f-18 md-f-22">
+    <select
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      className="f-18 md-f-22"
+    >
       {options}
     </select>
   );

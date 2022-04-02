@@ -343,6 +343,9 @@
 @mixin width-50 { width: 50%; }
 @mixin width-60 { width: 60%; }
 @mixin width-75 { width: 75%; }
+@mixin width($value) {
+    width: onlyPX($value);
+}
 @mixin max-width($value) {
     max-width: pixelToRem($value);
 }

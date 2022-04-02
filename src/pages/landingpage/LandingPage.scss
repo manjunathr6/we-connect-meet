@@ -47,6 +47,9 @@
 // Right otpions nav
 
 .options-section {
+    @include screenTablet {
+        min-width: 500px;
+    }
     .options-nav-right {
         white-space: nowrap;
         @include overflow(auto);

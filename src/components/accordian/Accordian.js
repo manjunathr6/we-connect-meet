@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import arrowDown from "../../assets/arrow-down.svg";
 import ActionBackgroundItem from "../backgrounds/ActionBackgroundItem";
+import { ContextData, DataInfo, ContextConsumer } from "../context/context";
 
 export default function Accordian(props) {
-  const backgrounds = props.data.map((item) => {
+  const useData = useContext(DataInfo);
+  const [configInfo, backgroundImgs, sideNavItems] = [...useData.data];
+  console.log(
+    "values...",
+    useData,
+    DataInfo,
+    ContextConsumer,
+    ContextData.Consumer
+  );
+  console.log("what are these..", backgroundImgs, useData.data[0].configInfo);
+
+  const backgrounds = backgroundImgs.backgroundImgs.map((item) => {
     return <ActionBackgroundItem key={item.name} item={item} />;
   });
   return (
@@ -18,7 +30,7 @@ export default function Accordian(props) {
             {backgrounds}
           </ul>
         </li>
-
+        {/* 
         <li className="available-items p-3 position-relative color-greyBase b-hairline">
           <span className="arrow position-absolute right-0 mr-4">
             <img src={arrowDown} alt="arrow down" />
@@ -30,8 +42,9 @@ export default function Accordian(props) {
             <img src={arrowDown} alt="arrow down" />
           </span>
           <p>Videos</p>
-        </li>
+        </li> */}
       </ul>
+      hello...
     </div>
   );
 }
