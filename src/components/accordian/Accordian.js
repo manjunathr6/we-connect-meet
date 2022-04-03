@@ -5,7 +5,7 @@ import { ContextData, DataInfo, ContextConsumer } from "../context/context";
 
 export default function Accordian(props) {
   const useData = useContext(DataInfo);
-  const [configInfo, backgroundImgs, sideNavItems] = [...useData.data];
+  const [backgroundImgs] = [...useData.data];
   console.log(
     "values...",
     useData,
@@ -13,7 +13,6 @@ export default function Accordian(props) {
     ContextConsumer,
     ContextData.Consumer
   );
-  console.log("what are these..", backgroundImgs, useData.data[0].configInfo);
 
   const backgrounds = backgroundImgs.backgroundImgs.map((item) => {
     return <ActionBackgroundItem key={item.name} item={item} />;

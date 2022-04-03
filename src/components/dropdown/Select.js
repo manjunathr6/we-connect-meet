@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useSelectedValue from "./UseSelectedValue";
 
 function Select(props) {
@@ -11,9 +11,9 @@ function Select(props) {
       </option>
     );
   });
-  const handleChange = (eve) => {
-    setValue(eve.target.value);
-  };
+  // const handleChange = (eve) => {
+  //   setValue(eve.target.value);
+  // };
   return (
     <select
       value={value}
