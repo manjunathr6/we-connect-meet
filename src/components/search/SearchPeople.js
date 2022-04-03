@@ -58,6 +58,7 @@ function SearchPeople() {
 
   useEffect(() => {
     debounce(updateUsersData, 700);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue]);
 
   const Row = useCallback(
