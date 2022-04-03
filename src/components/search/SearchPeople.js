@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { FixedSizeList as List } from "react-window";
 import PersonCard from "./PersonCard";
 import Input from "../formElements/Input";
+import SerachTitle from "./SerachTitle";
 
 function SearchPeople() {
   const [data, setData] = useState([]);
@@ -25,6 +26,15 @@ function SearchPeople() {
       setData(res);
       setUsersData(res.statuses);
     });
+  }, []);
+
+  useEffect(() => {
+    setInterval(() => {
+      getData().then((res) => {
+        setData(res);
+        setUsersData(res.statuses);
+      });
+    }, 30000);
   }, []);
 
   // Debouncing method
@@ -60,9 +70,9 @@ function SearchPeople() {
     },
     [usersData]
   );
-
   return (
     <div className="bg-color-greyLighter min-h-vh py-10 px-6">
+      <SerachTitle />
       <div className="search-bar d-flex items-center colGap-4 w-75 m-auto pb-6">
         <Input
           id="search-field"
@@ -87,9 +97,9 @@ function SearchPeople() {
         {/* Styling for this has to be taken care.. */}
         {usersData.length > 0 ? (
           <List
-            height={450}
+            height={650}
             itemCount={usersData.length}
-            itemSize={60}
+            itemSize={65}
             width={800}
             className="m-auto"
           >
@@ -99,6 +109,7 @@ function SearchPeople() {
           noResult
         )}
 
+        {/* Withput windowing the code */}
         {/* {usersData.length > 0
           ? usersData.map((user) => (
               <li key={user.id}>
